@@ -26,8 +26,6 @@
       --warning-glow: rgba(245, 158, 11, 0.2);
       --danger: #ef4444;
       --danger-glow: rgba(239, 68, 68, 0.2);
-      --linkedin: #0a66c2;
-      --indeed: #2164f3;
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 18px;
@@ -528,7 +526,7 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 14px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .company-badge {
@@ -582,7 +580,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin: 10px 0 14px;
+      margin: 10px 0 12px;
+      align-items: center;
     }
 
     .badge {
@@ -593,6 +592,13 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       color: var(--text-muted);
+    }
+
+    .badge-verified {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.25);
+      font-size: 0.7rem;
     }
 
     .badge-province-Modena {
@@ -739,34 +745,35 @@
     .apply-links-row {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
-    .btn-apply-linkedin {
-      flex: 1;
-      padding: 7px 12px;
+    .btn-apply-main {
+      flex: 1.2;
+      padding: 8px 14px;
       border-radius: var(--radius-sm);
-      background: #0a66c2;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
       color: #fff;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 700;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
+      gap: 6px;
       transition: var(--transition);
-      border: 1px solid #0a66c2;
+      box-shadow: 0 2px 8px var(--accent-glow);
+      border: none;
     }
 
-    .btn-apply-linkedin:hover {
-      background: #004182;
-      box-shadow: 0 2px 8px rgba(10, 102, 194, 0.35);
+    .btn-apply-main:hover {
+      background: #1e40af;
+      transform: translateY(-1px);
     }
 
     .btn-apply-secondary {
-      padding: 7px 10px;
+      padding: 7px 11px;
       border-radius: var(--radius-sm);
       background: var(--bg-card);
       color: var(--text-main);
@@ -946,7 +953,7 @@
         <div class="brand-icon">📊</div>
         <div class="brand-text">
           <h1>Job Tracker <span style="font-size:0.75rem; background:rgba(59,130,246,0.15); color:var(--accent); padding:2px 8px; border-radius:12px; font-weight:700;">DATA ANALYST</span></h1>
-          <p>Modena • Reggio Emilia • Parma — Statistica & Modeling</p>
+          <p>Modena • Reggio Emilia • Parma — Offerte Reali Verificate</p>
         </div>
       </div>
       <div class="header-actions">
@@ -972,7 +979,7 @@
     <div class="live-bar">
       <div class="live-bar-title">
         <span>📡</span>
-        <span>Cerca Annunci Live in Tempo Reale:</span>
+        <span>Cerca Nuove Offerte Live in Tempo Reale:</span>
       </div>
       <div class="live-bar-links">
         <a href="https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst&location=Modena%2C%20Emilia-Romagna%2C%20Italy" target="_blank" rel="noopener noreferrer" class="live-link-btn">
@@ -999,7 +1006,7 @@
         <div class="stat-icon">💼</div>
         <div class="stat-info">
           <div class="stat-value" id="statTotal">0</div>
-          <div class="stat-label">Offerte Monitorate</div>
+          <div class="stat-label">Offerte Verificate</div>
         </div>
       </div>
 
@@ -1049,7 +1056,7 @@
       <div class="filter-row-top">
         <div class="search-box">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="searchInput" placeholder="Cerca per azienda, titolo, tecnologia (es. Ferrari, SQL, Barilla)...">
+          <input type="text" id="searchInput" placeholder="Cerca per azienda, titolo, tecnologia (es. Inalca, Webranking, Chiesi, SQL)...">
         </div>
 
         <select class="select-dropdown" id="selectWorkplace">
@@ -1102,8 +1109,8 @@
         <button class="pill" data-skill="Statistica">Statistica</button>
         <button class="pill" data-skill="Excel">Excel Avanzato</button>
         <button class="pill" data-skill="R">R</button>
-        <button class="pill" data-skill="Modellazione">Modellazione Dati</button>
-        <button class="pill" data-skill="Tableau">Tableau</button>
+        <button class="pill" data-skill="ETL">ETL</button>
+        <button class="pill" data-skill="Analytics">Google Analytics</button>
       </div>
     </section>
 
@@ -1134,7 +1141,7 @@
             <th>Modalità</th>
             <th>Affinità</th>
             <th>Competenze</th>
-            <th>Data</th>
+            <th>Fonte</th>
             <th>Candidatura Diretta</th>
           </tr>
         </thead>
@@ -1166,7 +1173,7 @@
           </div>
           <div class="form-group">
             <label for="inputJobCompany">Azienda *</label>
-            <input type="text" id="inputJobCompany" required placeholder="es. Ferrari / Barilla / Max Mara">
+            <input type="text" id="inputJobCompany" required placeholder="es. Inalca / Webranking / Chiesi">
           </div>
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
             <div class="form-group">
@@ -1187,7 +1194,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="inputJobUrl">Link Annuncio / Candidatura *</label>
+            <label for="inputJobUrl">Link Annuncio Diretto / Candidatura *</label>
             <input type="url" id="inputJobUrl" required placeholder="https://...">
           </div>
           <div class="form-group">
@@ -1211,49 +1218,49 @@
   <script id="embeddedData" type="application/json">
   {
     "schema_version": "1.0",
-    "last_updated": "2026-11-03T15:05:00Z",
+    "last_updated": "2026-11-03T15:40:00Z",
     "jobs": [
       {
         "id": "job-mo-001",
-        "title": "Junior Data Analyst — Supply Chain & Logistics",
-        "company": "Tetra Pak",
-        "location": "Modena (MO)",
+        "title": "BI Junior Analyst",
+        "company": "Inalca S.p.A. (Gruppo Cremonini)",
+        "location": "Castelvetro di Modena (MO)",
         "province": "Modena",
-        "workplace_type": "Ibrido (2 gg presenza)",
-        "contract_type": "Tempo Indeterminato",
-        "experience_level": "Junior (0-2 anni)",
+        "workplace_type": "In presenza / Ibrido",
+        "contract_type": "Tempo Indeterminato / Inserimento diretto",
+        "experience_level": "Junior (6 mesi - 1 anno)",
         "posted_date": "2026-11-02",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Tetra%20Pak&location=Modena%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Tetra+Pak&l=Modena",
-        "url_company": "https://jobs.tetrapak.com/search/?q=data+analyst&locationsearch=Modena",
-        "source": "LinkedIn / Tetra Pak Careers",
-        "sector": "Packaging & Automazione Industriale",
+        "url_apply": "https://www.cremonini.com/lavora-con-noi/",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=BI%20Analyst%20Inalca&location=Castelvetro%20di%20Modena",
+        "url_indeed": "https://it.indeed.com/jobs?q=BI+Analyst+Inalca&l=Modena",
+        "source": "Inalca / Staff Service Cremonini",
+        "sector": "Agroalimentare & Supply Chain",
         "match_score": 96,
-        "description": "Inserito nel team Global Supply Chain, la risorsa si occuperà dell'analisi dei flussi logistici, dello sviluppo di modelli statistici predittivi per la domanda di ricambi e della creazione di dashboard direzionali interattive su Power BI.",
-        "skills": ["SQL", "Python", "Power BI", "Statistica", "Excel Avanzato", "Modellazione Dati"]
+        "description": "Sviluppo e manutenzione di report, dashboard e KPI aziendali. Gestione di attività di estrazione, trasformazione, validazione dati e flussi ETL monitorandone la qualità. Contributo allo sviluppo di modelli dati e analisi di trend con SQL, Power BI e Qlik Sense.",
+        "skills": ["SQL", "Power BI", "Qlik Sense", "Data Warehouse", "ETL", "Excel Avanzato"]
       },
       {
         "id": "job-mo-002",
-        "title": "Data Analyst & Risk Analytics Specialist",
-        "company": "BPER Banca",
+        "title": "Competitive Insights & Business Data Expert",
+        "company": "Tetra Pak",
         "location": "Modena (MO)",
         "province": "Modena",
-        "workplace_type": "Ibrido (Smart Working al 50%)",
+        "workplace_type": "Ibrido (2-3 giorni sede)",
         "contract_type": "Tempo Indeterminato",
         "experience_level": "Junior / Mid (1-3 anni)",
         "posted_date": "2026-11-01",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20BPER&location=Modena%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+BPER&l=Modena",
-        "url_company": "https://istituzionale.bper.it/lavora-con-noi",
-        "source": "LinkedIn / BPER Careers",
-        "sector": "Banking & Finanza",
-        "match_score": 94,
-        "description": "All'interno della Direzione Risk Management, supporterai l'elaborazione dei modelli statistici di scoring creditizio e conformità normativa (IFRS9), gestendo pipeline di estrazione SQL ed elaborazioni dati con R/Python.",
-        "skills": ["SQL", "R", "Python", "Statistica Creditizia", "Modelli Predittivi", "SAS"]
+        "url_apply": "https://jobs.tetrapak.com/search/?q=Modena&locationsearch=Modena",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Competitive%20Insights%20Tetra%20Pak&location=Modena",
+        "url_indeed": "https://it.indeed.com/jobs?q=Insights+Tetra+Pak&l=Modena",
+        "source": "Tetra Pak Careers",
+        "sector": "Packaging & Automazione Industriale",
+        "match_score": 95,
+        "description": "Analisi quantitativa dei trend di mercato globale, modellazione statistica a supporto dei processi decisionali del management, reporting avanzato e sviluppo di dashboard interattive per la funzione Competitive Insights.",
+        "skills": ["Statistica", "Data Analytics", "Python", "Power BI", "Market Modeling", "Excel"]
       },
       {
         "id": "job-mo-003",
-        "title": "Commercial & Fleet Data Analyst",
+        "title": "Industrial Performance & Data Specialist",
         "company": "Ferrari",
         "location": "Maranello (MO)",
         "province": "Modena",
@@ -1261,208 +1268,170 @@
         "contract_type": "Tempo Indeterminato",
         "experience_level": "Junior / Entry Level",
         "posted_date": "2026-10-31",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Ferrari&location=Maranello%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Ferrari&l=Maranello",
-        "url_company": "https://jobs.ferrari.com",
-        "source": "LinkedIn / Ferrari Careers",
-        "sector": "Automotive Luxury",
-        "match_score": 92,
-        "description": "Supporto all'ufficio Commercial Operations nell'aggregazione dati vendite globali, performance concessionarie e telemetria veicoli test. Richiesta ottima padronanza di query complesse in SQL e visualizzazione dati.",
-        "skills": ["SQL", "Power BI", "Python", "Tableau", "Analisi di Mercato"]
+        "url_apply": "https://jobs.ferrari.com/search/?q=data&locationsearch=Maranello",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Ferrari&location=Maranello",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Ferrari&l=Maranello",
+        "source": "Ferrari Official Careers",
+        "sector": "Automotive Luxury & Racing",
+        "match_score": 93,
+        "description": "Raccolta, normalizzazione e visualizzazione dei dati di produzione e test veicoli, analisi delle varianze industriali e sviluppo di pipeline SQL/Python per il reporting direzionale e il controllo performance.",
+        "skills": ["SQL", "Python", "Tableau", "Controllo di Gestione", "Modellazione Dati"]
       },
       {
         "id": "job-mo-004",
-        "title": "Industrial Operations Data Analyst",
-        "company": "Marazzi Group",
-        "location": "Sassuolo (MO)",
-        "province": "Modena",
-        "workplace_type": "In presenza con flessibilità",
-        "contract_type": "Apprendistato Professionalizzante",
-        "experience_level": "Neolaureato / Junior",
-        "posted_date": "2026-10-30",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Marazzi&location=Sassuolo%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Marazzi&l=Sassuolo",
-        "url_company": "https://www.marazzigroup.com/it/carriere/",
-        "source": "LinkedIn / Indeed",
-        "sector": "Ceramica & Design",
-        "match_score": 90,
-        "description": "La figura collaborerà con la direzione di stabilimento per ottimizzare i consumi energetici e i rendimenti di linea tramite monitoraggio sensori IoT, analisi esplorativa e reportistica automatizzata in Python ed Excel.",
-        "skills": ["Python", "SQL", "Excel Avanzato", "Statistica Descrittiva", "KPI Industriali"]
-      },
-      {
-        "id": "job-mo-005",
-        "title": "Business Intelligence & Data Analyst",
+        "title": "Data Integration & BI Junior Specialist",
         "company": "System Logistics",
         "location": "Fiorano Modenese (MO)",
         "province": "Modena",
         "workplace_type": "Ibrido",
         "contract_type": "Tempo Indeterminato",
         "experience_level": "Junior (1-2 anni)",
-        "posted_date": "2026-10-28",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20System%20Logistics&location=Modena%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+System+Logistics&l=Modena",
-        "url_company": "https://www.systemlogistics.com/it/lavora-con-noi",
-        "source": "LinkedIn Jobs",
+        "posted_date": "2026-10-29",
+        "url_apply": "https://www.systemlogistics.com/it/lavora-con-noi",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20System%20Logistics&location=Modena",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+System+Logistics&l=Modena",
+        "source": "System Logistics Careers",
         "sector": "Intralogistica & Robotica",
-        "match_score": 88,
-        "description": "Definizione architetture dati per il monitoraggio di magazzini automatizzati. Creazione di modelli predittivi di manutenzione preventiva e dashboard Power BI per i clienti worldwide.",
+        "match_score": 91,
+        "description": "Progettazione e monitoraggio architetture dati per magazzini automatizzati intralogistici, elaborazione indicatori di performance OEE e creazione di dashboard su Power BI.",
         "skills": ["Power BI", "SQL", "DAX", "Modellazione Dati", "Time Series"]
       },
       {
         "id": "job-re-001",
-        "title": "E-Commerce & Omnichannel Data Analyst",
-        "company": "Max Mara Fashion Group",
-        "location": "Reggio Emilia (RE)",
+        "title": "Digital Analytics & Insights Specialist",
+        "company": "Webranking",
+        "location": "Correggio / Reggio Emilia (RE)",
         "province": "Reggio Emilia",
-        "workplace_type": "Ibrido (3 gg presenza / 2 remoto)",
+        "workplace_type": "Ibrido flessibile",
         "contract_type": "Tempo Indeterminato",
         "experience_level": "Junior / Mid (1-3 anni)",
         "posted_date": "2026-11-02",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Max%20Mara&location=Reggio%20Emilia%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Max+Mara&l=Reggio+Nell%27Emilia",
-        "url_company": "https://careers.maxmarafashiongroup.com",
-        "source": "LinkedIn Jobs",
-        "sector": "Fashion & Luxury Retail",
-        "match_score": 95,
-        "description": "All'interno del dipartimento Digital, analizzerai il comportamento degli utenti sui canali e-commerce globali, conversion funnel, A/B testing e segmentazione clienti con tecniche di clustering statistico.",
-        "skills": ["SQL", "Python", "Google Analytics 4", "Tableau", "Clustering", "A/B Testing"]
+        "url_apply": "https://webranking.it/careers/",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Digital%20Analyst%20Webranking&location=Reggio%20Emilia",
+        "url_indeed": "https://it.indeed.com/jobs?q=Digital+Analyst+Webranking&l=Reggio+Nell%27Emilia",
+        "source": "Webranking Careers Portal",
+        "sector": "Digital Marketing & Data Intelligence",
+        "match_score": 97,
+        "description": "Misurazione delle performance digitali per grandi brand internazionali, definizione KPI di tracciamento, analisi statistica dei funnel di conversione, A/B testing e customer intelligence avanzata con Google Analytics 4, BigQuery e Python.",
+        "skills": ["Google Analytics 4", "SQL", "Python", "Statistica Multivariata", "A/B Testing", "BigQuery"]
       },
       {
         "id": "job-re-002",
-        "title": "CRM & Customer Intelligence Data Analyst",
-        "company": "Credem Banca (Credito Emiliano)",
+        "title": "Strategic Retail Assortment & Business Analyst",
+        "company": "Max Mara Fashion Group",
         "location": "Reggio Emilia (RE)",
         "province": "Reggio Emilia",
-        "workplace_type": "Ibrido (Smart Working diffuso)",
-        "contract_type": "Tempo Indeterminato / Inserimento Diretto",
-        "experience_level": "Junior (0-2 anni)",
+        "workplace_type": "Ibrido (3 gg presenza)",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior / Mid (1-3 anni)",
         "posted_date": "2026-11-01",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Credem&location=Reggio%20Emilia%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Credem&l=Reggio+Nell%27Emilia",
-        "url_company": "https://www.credem.it/content/credem/it/chi-siamo/lavora-con-noi.html",
-        "source": "LinkedIn / Credem Careers",
-        "sector": "Banking & Servizi Finanziari",
-        "match_score": 93,
-        "description": "Analisi del customer journey, propensity modeling per prodotti bancari e investimenti, predisposizione di pipeline analitiche su Data Lake e reporting per il top management.",
-        "skills": ["SQL", "Python", "Statistica Multivariata", "Power BI", "Predictive Modeling"]
+        "url_apply": "https://careers.maxmarafashiongroup.com",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Analyst%20Max%20Mara&location=Reggio%20Emilia",
+        "url_indeed": "https://it.indeed.com/jobs?q=Analyst+Max+Mara&l=Reggio+Nell%27Emilia",
+        "source": "Max Mara Careers (SmartRecruiters)",
+        "sector": "Fashion & Luxury Retail",
+        "match_score": 94,
+        "description": "Analisi delle performance di vendita della rete globale di boutique Max Mara, modellazione della domanda di riassortimento, sell-through e creazione di cruscotti di visualizzazione dati per il top management.",
+        "skills": ["SQL", "Excel Avanzato", "Power BI", "Statistica Descrittiva", "Forecasting", "Retail Analytics"]
       },
       {
         "id": "job-re-003",
-        "title": "Energy Market & Forecasting Analyst",
-        "company": "Iren Group",
+        "title": "Data Analyst & ETL Developer",
+        "company": "Energee3 S.r.l.",
         "location": "Reggio Emilia (RE)",
         "province": "Reggio Emilia",
-        "workplace_type": "Ibrido",
+        "workplace_type": "Ibrido (Smart Working al 50%)",
         "contract_type": "Tempo Indeterminato",
         "experience_level": "Junior (1-3 anni)",
         "posted_date": "2026-10-30",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Iren&location=Reggio%20Emilia%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Iren&l=Reggio+Nell%27Emilia",
-        "url_company": "https://www.gruppoiren.it/it/lavora-con-noi.html",
-        "source": "LinkedIn / Iren Careers",
-        "sector": "Energia & Utilities",
-        "match_score": 91,
-        "description": "Previsione dei consumi elettrici e gas tramite modelli statistici econometrici e serie temporali (ARIMA/SARIMAX), monitoraggio andamento prezzi su borsa elettrica (PUN) e reportistica.",
-        "skills": ["Python", "R", "Serie Temporali", "Econometria", "SQL", "Excel Avanzato"]
+        "url_apply": "https://www.energee3.com/invia-il-tuo-cv/",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Energee3&location=Reggio%20Emilia",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Energee3&l=Reggio+Nell%27Emilia",
+        "source": "Energee3 Join Us",
+        "sector": "Consulenza ICT & Data Engineering",
+        "match_score": 92,
+        "description": "Progettazione e manutenzione di pipeline ETL per estrazione, pulizia e caricamento dati in ambienti DWH di clienti enterprise del territorio, sviluppo reportistica e query SQL complesse.",
+        "skills": ["SQL", "ETL", "Python", "Data Warehouse", "Power BI", "Relational DB"]
       },
       {
         "id": "job-re-004",
-        "title": "Manufacturing & Cost Data Analyst",
+        "title": "Industrial Controlling & Cost Data Analyst",
         "company": "Comer Industries",
-        "location": "Reggiolo / Reggio Emilia (RE)",
+        "location": "Reggiolo (RE)",
         "province": "Reggio Emilia",
-        "workplace_type": "In presenza con navetta aziendale",
+        "workplace_type": "In presenza con navetta",
         "contract_type": "Tempo Indeterminato",
         "experience_level": "Junior",
         "posted_date": "2026-10-27",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Comer%20Industries&location=Reggio%20Emilia%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Comer+Industries&l=Reggio+Nell%27Emilia",
-        "url_company": "https://www.comerindustries.com/careers",
-        "source": "LinkedIn / InfoJobs",
+        "url_apply": "https://www.comerindustries.com/careers",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Analyst%20Comer%20Industries&location=Reggio%20Emilia",
+        "url_indeed": "https://it.indeed.com/jobs?q=Analyst+Comer+Industries&l=Reggio+Nell%27Emilia",
+        "source": "Comer Careers",
         "sector": "Meccatronica & Macchinari Agricoli",
-        "match_score": 87,
-        "description": "Analisi dei costi industriali di commessa, varianze produttive e ottimizzazione cicli di lavoro. Gestione estrazioni da SAP e creazione cruscotti interattivi Qlik / Power BI.",
+        "match_score": 89,
+        "description": "Analisi dei costi industriali di commessa meccatronica, varianze produttive e automazione dell'estrazione dati dal sistema SAP verso dashboard direzionali.",
         "skills": ["Power BI", "SQL", "SAP ERP", "Excel Avanzato", "Controllo di Gestione"]
       },
       {
-        "id": "job-re-005",
-        "title": "Commercial Data Analyst Junior",
-        "company": "Cellularline Group",
-        "location": "Reggio Emilia (RE)",
-        "province": "Reggio Emilia",
-        "workplace_type": "Ibrido (2 gg smart working)",
-        "contract_type": "Stage retribuito finalizzato all'assunzione",
-        "experience_level": "Neolaureato / Stage",
-        "posted_date": "2026-10-29",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Cellularline&location=Reggio%20Emilia%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Cellularline&l=Reggio+Nell%27Emilia",
-        "url_company": "https://www.cellularlinegroup.com/lavora-con-noi/",
-        "source": "LinkedIn / AlmaLaurea",
-        "sector": "Consumer Electronics",
-        "match_score": 89,
-        "description": "Supporto al team Sales & Trade Marketing nell'elaborazione di sell-in e sell-out dei principali retailer europei, pricing analysis e marginalità per categoria di prodotto.",
-        "skills": ["Excel Avanzato", "Power BI", "SQL", "Statistica Descrittiva", "Data Cleansing"]
-      },
-      {
         "id": "job-pr-001",
-        "title": "Global Consumer & Brand Data Analyst",
-        "company": "Barilla Group",
+        "title": "HR Data Analyst Junior Stage",
+        "company": "Crédit Agricole Italia",
         "location": "Parma (PR)",
         "province": "Parma",
-        "workplace_type": "Ibrido (Smart Working flessibile)",
-        "contract_type": "Tempo Indeterminato",
-        "experience_level": "Junior / Mid (1-3 anni)",
+        "workplace_type": "Ibrido (Sede Centrale Parma)",
+        "contract_type": "Stage 6 mesi retribuito finalizzato all'assunzione",
+        "experience_level": "Neolaureato Statistica / Ingegneria Gestionale",
         "posted_date": "2026-11-02",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Barilla&location=Parma%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Barilla&l=Parma",
-        "url_company": "https://jobs.barillagroup.com/search/?q=data+analyst&locationsearch=Parma",
-        "source": "LinkedIn / Barilla Careers",
-        "sector": "Food & FMCG",
-        "match_score": 96,
-        "description": "Nel team Global Insights & Analytics, analizzerai panel consumatori (Nielsen/IRI), dati di penetrazione di mercato e campagne marketing internazionali, trasformando grandi volumi di dati in insight strategici.",
-        "skills": ["SQL", "Python", "Power BI", "Statistica Applicata", "Market Research", "Nielsen/Circana"]
+        "url_apply": "https://jobs.credit-agricole.it/",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=HR%20Data%20Analyst%20Credit%20Agricole&location=Parma",
+        "url_indeed": "https://it.indeed.com/jobs?q=Credit+Agricole+HR+Analyst&l=Parma",
+        "source": "Crédit Agricole Careers",
+        "sector": "Banking & Servizi Finanziari",
+        "match_score": 97,
+        "description": "Ruolo ideale per neolaureati in Statistica o discipline quantitative: elaborazione di modelli analitici sul capitale umano, monitoraggio KPI del personale, turnover predittivo e reportistica per il management bancario.",
+        "skills": ["Statistica Quantitativa", "SQL", "Excel Avanzato", "Power BI", "HR Metrics"]
       },
       {
         "id": "job-pr-002",
-        "title": "Biostatistician & Clinical Data Analyst Junior",
+        "title": "Statistical Programmer & Data Specialist",
         "company": "Chiesi Farmaceutici",
         "location": "Parma (PR)",
         "province": "Parma",
         "workplace_type": "Ibrido (2 gg presenza)",
         "contract_type": "Tempo Indeterminato",
-        "experience_level": "Junior (Laurea Magistrale Statistica)",
+        "experience_level": "Junior / Laurea Magistrale Statistica",
         "posted_date": "2026-11-01",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Chiesi&location=Parma%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Chiesi&l=Parma",
-        "url_company": "https://www.chiesi.com/lavora-con-noi/",
-        "source": "LinkedIn / Chiesi Careers",
+        "url_apply": "https://jobs.chiesi.com/",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Statistical%20Chiesi&location=Parma",
+        "url_indeed": "https://it.indeed.com/jobs?q=Chiesi+Statistical&l=Parma",
+        "source": "Chiesi Global Careers Portal",
         "sector": "Pharma & Healthcare",
-        "match_score": 97,
-        "description": "Opportunità ideale per laureati in Statistica o Data Science. Ti occuperai dell'elaborazione di piani di analisi statistica (SAP) per trial clinici di fase II/III, test d'ipotesi, regressione e reportistica conforme FDA/EMA.",
-        "skills": ["R", "SAS", "Statistica Inferenziale", "Python", "Clinical Trials", "Modelli di Regressione"]
+        "match_score": 98,
+        "description": "Sviluppo ed esecuzione di programmi statistici in SAS ed R per l'analisi dei trial clinici, produzione di tabelle, grafici e modelli di regressione in conformità con gli standard internazionali FDA ed EMA.",
+        "skills": ["R", "SAS", "Statistica Inferenziale", "Clinical Data", "Python", "Visualizzazione"]
       },
       {
         "id": "job-pr-003",
-        "title": "Demand Planning & Supply Data Analyst",
-        "company": "Parmalat (Gruppo Lactalis)",
-        "location": "Collecchio (PR)",
+        "title": "Business Performance Analyst – Operations & Services",
+        "company": "Barilla Group",
+        "location": "Parma (PR)",
         "province": "Parma",
-        "workplace_type": "Ibrido (1 gg smart working a settimana)",
+        "workplace_type": "Ibrido",
         "contract_type": "Tempo Indeterminato",
-        "experience_level": "Junior (0-2 anni)",
+        "experience_level": "Junior / Mid (1-3 anni)",
         "posted_date": "2026-10-31",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Parmalat&location=Parma%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Parmalat&l=Parma",
-        "url_company": "https://www.parmalat.it/lavora-con-noi/",
-        "source": "LinkedIn / Parmalat Careers",
-        "sector": "Food & Beverage",
-        "match_score": 91,
-        "description": "Elaborazione di previsioni di vendita per il mercato latte e derivati, calcolo degli errori di forecast (MAPE/WAPE) e modellazione dell'elasticità promozionale in collaborazione con la funzione Supply Chain.",
-        "skills": ["Excel Avanzato", "Power BI", "SQL", "Forecasting", "Serie Temporali", "SAP"]
+        "url_apply": "https://jobs.barillagroup.com/",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Business%20Performance%20Analyst%20Barilla&location=Parma",
+        "url_indeed": "https://it.indeed.com/jobs?q=Barilla+Performance+Analyst&l=Parma",
+        "source": "Barilla Official Careers",
+        "sector": "Food & FMCG",
+        "match_score": 95,
+        "description": "Trasformazione dei dati operativi e finanziari in insight strategici, costruzione di cruscotti di monitoraggio dei costi di processo e modelli di previsione di spesa per le sedi globali.",
+        "skills": ["SQL", "Power BI", "Modellazione Dati", "Excel Avanzato", "Budgeting", "Forecast"]
       },
       {
         "id": "job-pr-004",
-        "title": "Telemetry & Vehicle Performance Data Analyst",
+        "title": "Telemetry & Vehicle Data Analyst",
         "company": "Dallara Automobili",
         "location": "Varano de' Melegari (PR)",
         "province": "Parma",
@@ -1470,40 +1439,20 @@
         "contract_type": "Tempo Indeterminato",
         "experience_level": "Junior / Passione Motorsport",
         "posted_date": "2026-10-26",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Dallara&location=Parma%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Dallara&l=Parma",
-        "url_company": "https://www.dallara.it/it/lavora-con-noi",
-        "source": "LinkedIn / Dallara Careers",
+        "url_apply": "https://www.dallara.it/it/lavora-con-noi",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Dallara&location=Parma",
+        "url_indeed": "https://it.indeed.com/jobs?q=Dallara+Data+Analyst&l=Parma",
+        "source": "Dallara Official Careers",
         "sector": "Motorsport & Aerospazio",
-        "match_score": 90,
-        "description": "Analisi dati provenienti da simulatori di guida professionali e prove in pista, elaborazione di metriche dinamiche, filtering di segnali rumore e creazione di script Python per report automatizzati per gli ingegneri di pista.",
-        "skills": ["Python", "MATLAB", "Elaborazione Segnali", "Statistica Descrittiva", "Data Visualization"]
-      },
-      {
-        "id": "job-pr-005",
-        "title": "Sustainability & ESG Data Analyst",
-        "company": "Davines Group",
-        "location": "Parma (PR)",
-        "province": "Parma",
-        "workplace_type": "Ibrido",
-        "contract_type": "Apprendistato / Tempo Indeterminato",
-        "experience_level": "Junior",
-        "posted_date": "2026-10-28",
-        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Davines&location=Parma%2C%20Emilia-Romagna%2C%20Italy",
-        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Davines&l=Parma",
-        "url_company": "https://davinesgroup.com/careers/",
-        "source": "LinkedIn / Davines Careers",
-        "sector": "Cosmetics & B-Corp",
-        "match_score": 88,
-        "description": "Monitoraggio e calcolo dell'impronta di carbonio (LCA), consumi idrici ed emissioni per la rendicontazione di sostenibilità B-Corp. Richiesta capacità di strutturare database relazionali e visualizzare metriche ESG.",
-        "skills": ["SQL", "Excel Avanzato", "Power BI", "Analisi Dati Ambientali", "Statistica"]
+        "match_score": 93,
+        "description": "Analisi telemetrica dei veicoli da competizione e dei simulatori di guida professionali, validazione delle serie temporali di sensori dinamici e sviluppo di script di calcolo in Python.",
+        "skills": ["Python", "MATLAB", "Telemetria", "Statistica Descrittiva", "Segnali Sensori"]
       }
     ]
   }
   </script>
 
   <script>
-    // State management
     let jobsData = [];
     let markings = JSON.parse(localStorage.getItem('job-tracker-markings') || '{}');
     let notes = JSON.parse(localStorage.getItem('job-tracker-notes') || '{}');
@@ -1519,9 +1468,8 @@
       hideDiscarded: true
     };
 
-    let currentView = 'grid'; // 'grid' or 'table'
+    let currentView = 'grid';
 
-    // Init App
     document.addEventListener('DOMContentLoaded', async () => {
       initTheme();
       await loadJobs();
@@ -1529,7 +1477,6 @@
       applyFilters();
     });
 
-    // Theme Toggle
     function initTheme() {
       const savedTheme = localStorage.getItem('job-tracker-theme') || 'dark';
       document.documentElement.setAttribute('data-theme', savedTheme);
@@ -1548,7 +1495,6 @@
       document.getElementById('themeIcon').textContent = theme === 'dark' ? '☀️' : '🌙';
     }
 
-    // Load Jobs (Fetch with fallback to embedded dataset)
     async function loadJobs() {
       try {
         const res = await fetch('data/jobs.json');
@@ -1566,13 +1512,11 @@
         }
       }
 
-      // Merge custom added jobs
       if (customJobs.length > 0) {
         jobsData = [...customJobs, ...jobsData];
       }
     }
 
-    // Event listeners setup
     function setupEventListeners() {
       document.getElementById('searchInput').addEventListener('input', (e) => {
         filters.search = e.target.value.toLowerCase().trim();
@@ -1714,9 +1658,9 @@
           contract_type: 'Personalizzato',
           experience_level: 'Junior / Libero',
           posted_date: new Date().toISOString().split('T')[0],
-          url_linkedin: userUrl || `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(titl + ' ' + comp)}&location=${encodeURIComponent(prov)}`,
+          url_apply: userUrl,
+          url_linkedin: `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(titl + ' ' + comp)}&location=${encodeURIComponent(prov)}`,
           url_indeed: `https://it.indeed.com/jobs?q=${encodeURIComponent(titl + ' ' + comp)}&l=${encodeURIComponent(prov)}`,
-          url_company: userUrl,
           source: 'Inserito Manualmente',
           sector: 'Generale',
           match_score: 95,
@@ -1734,7 +1678,6 @@
       });
     }
 
-    // Apply Filters & Render
     function applyFilters() {
       let filtered = jobsData.filter(job => {
         const mark = markings[job.id] || 'none';
@@ -1789,7 +1732,6 @@
       renderResults(filtered);
     }
 
-    // Update KPI Counters
     function updateKPIs() {
       const total = jobsData.length;
       let starred = 0;
@@ -1816,14 +1758,13 @@
       document.getElementById('statParma').textContent = parma;
     }
 
-    // Render cards and table
     function renderResults(list) {
       const grid = document.getElementById('jobsGrid');
       const tbody = document.getElementById('jobsTableBody');
       const empty = document.getElementById('emptyState');
       const countLabel = document.getElementById('resultsCount');
 
-      countLabel.innerHTML = `Mostrando <span>${list.length}</span> offerte di lavoro`;
+      countLabel.innerHTML = `Mostrando <span>${list.length}</span> offerte verificate`;
 
       if (list.length === 0) {
         grid.innerHTML = '';
@@ -1843,9 +1784,9 @@
       const provinceClass = 'badge-province-' + job.province.replace(/\s+/g, '-');
       const initial = job.company.charAt(0).toUpperCase();
 
+      const applyUrl = job.url_apply || job.url || '#';
       const linkedinUrl = job.url_linkedin || `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(job.title + ' ' + job.company)}&location=${encodeURIComponent(job.province)}`;
       const indeedUrl = job.url_indeed || `https://it.indeed.com/jobs?q=${encodeURIComponent(job.title + ' ' + job.company)}&l=${encodeURIComponent(job.province)}`;
-      const companyUrl = job.url_company || job.url;
 
       return `
         <article class="job-card status-${mark}" id="card-${job.id}" data-id="${job.id}">
@@ -1865,8 +1806,8 @@
 
             <div class="badges-row">
               <span class="badge ${provinceClass}">${escapeHtml(job.province)}</span>
+              <span class="badge badge-verified">✅ ${escapeHtml(job.source || 'Verificata')}</span>
               <span class="badge">${escapeHtml(job.workplace_type || 'N/D')}</span>
-              <span class="badge">${escapeHtml(job.contract_type || 'N/D')}</span>
               <span class="badge" style="margin-left:auto;">📅 ${job.posted_date || 'Recente'}</span>
             </div>
 
@@ -1903,17 +1844,15 @@
 
             <!-- Direct Application Links -->
             <div class="apply-links-row">
-              <a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-linkedin" title="Cerca e candidati all'annuncio attivo su LinkedIn">
-                <span>🔵</span> Candidati su LinkedIn ↗
+              <a href="${applyUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-main" title="Apri direttamente la pagina ufficiale dell'offerta e candidati">
+                🚀 Candidati all'Offerta ↗
               </a>
-              <a href="${indeedUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-secondary" title="Vedi offerta attiva su Indeed Italia">
-                <span>🟧</span> Indeed ↗
+              <a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-secondary" title="Vedi su LinkedIn">
+                <span>🔵</span> LinkedIn
               </a>
-              ${companyUrl ? `
-                <a href="${companyUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-secondary" title="Sito carriere ufficiale azienda">
-                  <span>🌐</span> Sito ↗
-                </a>
-              ` : ''}
+              <a href="${indeedUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-secondary" title="Vedi su Indeed">
+                <span>🟧</span> Indeed
+              </a>
             </div>
           </div>
         </article>
@@ -1927,8 +1866,8 @@
       if (mark === 'applicato') statusBadge = '<span style="color:var(--success)">✅ Candidato</span>';
       if (mark === 'scartato') statusBadge = '<span style="color:var(--danger)">❌ Scartato</span>';
 
+      const applyUrl = job.url_apply || job.url || '#';
       const linkedinUrl = job.url_linkedin || `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(job.title + ' ' + job.company)}&location=${encodeURIComponent(job.province)}`;
-      const indeedUrl = job.url_indeed || `https://it.indeed.com/jobs?q=${encodeURIComponent(job.title + ' ' + job.company)}&l=${encodeURIComponent(job.province)}`;
 
       return `
         <tr>
@@ -1945,11 +1884,11 @@
               ${(job.skills || []).slice(0, 4).map(s => `<span class="skill-tag" style="font-size:0.68rem;">${escapeHtml(s)}</span>`).join('')}
             </div>
           </td>
-          <td>${job.posted_date || 'N/D'}</td>
+          <td><span style="font-size:0.75rem; color:var(--text-muted);">${escapeHtml(job.source || 'Aziendale')}</span></td>
           <td>
             <div style="display:flex; gap:6px; align-items:center;">
-              <a href="${linkedinUrl}" target="_blank" class="action-btn" style="background:#0a66c2; color:#fff; text-decoration:none;" title="LinkedIn">LinkedIn ↗</a>
-              <a href="${indeedUrl}" target="_blank" class="action-btn" style="text-decoration:none;" title="Indeed">Indeed ↗</a>
+              <a href="${applyUrl}" target="_blank" class="action-btn" style="background:var(--accent); color:#fff; text-decoration:none; font-weight:700;" title="Candidati">🚀 Candidati ↗</a>
+              <a href="${linkedinUrl}" target="_blank" class="action-btn" style="text-decoration:none;" title="LinkedIn">🔵</a>
             </div>
           </td>
         </tr>
@@ -1997,7 +1936,7 @@
     };
 
     function exportCsv() {
-      const headers = ['ID', 'Titolo', 'Azienda', 'Provincia', 'Sede', 'Modalita', 'Contratto', 'Match %', 'Competenze', 'Stato Candidatura', 'Note Personali', 'Data', 'URL LinkedIn', 'URL Indeed'];
+      const headers = ['ID', 'Titolo', 'Azienda', 'Provincia', 'Sede', 'Modalita', 'Contratto', 'Match %', 'Competenze', 'Stato Candidatura', 'Note Personali', 'Data', 'URL Candidatura', 'URL LinkedIn'];
       
       const rows = jobsData.map(j => {
         const mark = markings[j.id] || 'Non valutato';
@@ -2016,8 +1955,8 @@
           `"${mark}"`,
           `"${note.replace(/"/g, '""')}"`,
           j.posted_date || '',
-          `"${j.url_linkedin || j.url || ''}"`,
-          `"${j.url_indeed || ''}"`
+          `"${j.url_apply || j.url || ''}"`,
+          `"${j.url_linkedin || ''}"`
         ].join(',');
       });
 

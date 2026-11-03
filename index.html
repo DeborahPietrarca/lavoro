@@ -2,11 +2,2061 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=docs/index.html">
-  <title>Reindirizzamento a Job Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Tracker — Data Analyst (Modena, Reggio Emilia, Parma)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0e17;
+      --bg-secondary: #121826;
+      --bg-card: #182234;
+      --bg-card-hover: #1f2c42;
+      --border-color: #26334a;
+      --border-focus: #3b82f6;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.25);
+      --success: #10b981;
+      --success-glow: rgba(16, 185, 129, 0.2);
+      --warning: #f59e0b;
+      --warning-glow: rgba(245, 158, 11, 0.2);
+      --danger: #ef4444;
+      --danger-glow: rgba(239, 68, 68, 0.2);
+      --linkedin: #0a66c2;
+      --indeed: #2164f3;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.25);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.35);
+      --shadow-lg: 0 16px 40px rgba(0,0,0,0.5);
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-focus: #2563eb;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #94a3b8;
+      --accent: #2563eb;
+      --accent-glow: rgba(37, 99, 235, 0.15);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 60px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+
+    .brand-text h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-text p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--text-dim);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 2px 10px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+    }
+
+    .btn-icon {
+      padding: 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Live Feeds Quick Bar */
+    .live-bar {
+      margin: 20px 0 0;
+      padding: 14px 20px;
+      background: linear-gradient(90deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .live-bar-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .live-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .live-link-btn {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition);
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .live-link-btn:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      transform: translateY(-1px);
+    }
+
+    /* KPI Stats Bar */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 20px 0 24px;
+    }
+
+    .stat-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card:hover {
+      border-color: var(--border-focus);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--stat-color, var(--accent));
+    }
+
+    .stat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--stat-bg, rgba(59, 130, 246, 0.12));
+      color: var(--stat-color, var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .stat-info .stat-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .stat-info .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    /* Filters Section */
+    .filter-panel {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-row-top {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 280px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      height: 44px;
+      padding: 0 16px 0 42px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-box input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      pointer-events: none;
+    }
+
+    .select-dropdown {
+      height: 44px;
+      padding: 0 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      outline: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .select-dropdown:focus {
+      border-color: var(--border-focus);
+    }
+
+    /* Filter Pills */
+    .filter-pills-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .filter-label {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-right: 4px;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .pill:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-main);
+    }
+
+    .pill.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px var(--accent-glow);
+    }
+
+    .pill.active-success {
+      background: var(--success);
+      color: #fff;
+      border-color: var(--success);
+      box-shadow: 0 2px 8px var(--success-glow);
+    }
+
+    .pill.active-warning {
+      background: var(--warning);
+      color: #fff;
+      border-color: var(--warning);
+      box-shadow: 0 2px 8px var(--warning-glow);
+    }
+
+    .pill.active-danger {
+      background: var(--danger);
+      color: #fff;
+      border-color: var(--danger);
+      box-shadow: 0 2px 8px var(--danger-glow);
+    }
+
+    /* Sub-bar (View Switch & Count) */
+    .toolbar-sub {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .results-count {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .results-count span {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .view-toggles {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    .view-btn {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .view-btn.active {
+      background: var(--bg-card);
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Job Grid / Cards */
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
+      gap: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .jobs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .job-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .job-card:hover {
+      border-color: var(--border-focus);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .job-card.status-applicato {
+      border-left: 4px solid var(--success);
+    }
+
+    .job-card.status-interessante {
+      border-left: 4px solid var(--warning);
+    }
+
+    .job-card.status-scartato {
+      border-left: 4px solid var(--danger);
+      opacity: 0.65;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .company-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .company-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .company-meta h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text-main);
+    }
+
+    .company-meta .company-name {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .match-pill {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--success);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      white-space: nowrap;
+    }
+
+    /* Badges Row */
+    .badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 14px;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .badge-province-Modena {
+      background: rgba(2, 132, 199, 0.12);
+      color: #38bdf8;
+      border-color: rgba(2, 132, 199, 0.25);
+    }
+
+    .badge-province-Reggio-Emilia {
+      background: rgba(13, 148, 136, 0.12);
+      color: #2dd4bf;
+      border-color: rgba(13, 148, 136, 0.25);
+    }
+
+    .badge-province-Parma {
+      background: rgba(217, 119, 6, 0.12);
+      color: #fbbf24;
+      border-color: rgba(217, 119, 6, 0.25);
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    /* Skills Tags */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 16px;
+    }
+
+    .skill-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(59, 130, 246, 0.1);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .skill-tag:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* Notes section */
+    .notes-box {
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .notes-box.open {
+      display: block;
+    }
+
+    .notes-box textarea {
+      width: 100%;
+      height: 60px;
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      outline: none;
+      resize: vertical;
+    }
+
+    .notes-box textarea:focus {
+      border-color: var(--border-focus);
+    }
+
+    /* Card Footer / Actions */
+    .card-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .status-actions-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .action-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .action-btn {
+      padding: 5px 9px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .action-btn:hover {
+      color: var(--text-main);
+      background: var(--bg-card-hover);
+    }
+
+    .action-btn.active-interessante {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--warning);
+      border-color: var(--warning);
+    }
+
+    .action-btn.active-applicato {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+      border-color: var(--success);
+    }
+
+    .action-btn.active-scartato {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--danger);
+      border-color: var(--danger);
+    }
+
+    /* Apply Links Group */
+    .apply-links-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .btn-apply-linkedin {
+      flex: 1;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      background: #0a66c2;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: var(--transition);
+      border: 1px solid #0a66c2;
+    }
+
+    .btn-apply-linkedin:hover {
+      background: #004182;
+      box-shadow: 0 2px 8px rgba(10, 102, 194, 0.35);
+    }
+
+    .btn-apply-secondary {
+      padding: 7px 10px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .btn-apply-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--text-dim);
+    }
+
+    /* Table View */
+    .table-container {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+      display: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    th {
+      background: var(--bg-card);
+      padding: 14px 18px;
+      color: var(--text-dim);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    tr:hover td {
+      background: var(--bg-card-hover);
+      color: var(--text-main);
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--bg-secondary);
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-lg);
+      display: none;
+    }
+
+    .empty-state svg {
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    .empty-state h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .empty-state p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Modal for Add Job */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 560px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-height: 75vh;
+      overflow-y: auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 10px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--border-focus);
+    }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+  </style>
 </head>
-<body style="font-family: sans-serif; text-align: center; padding: 40px;">
-  <p>Reindirizzamento alla dashboard in corso...</p>
-  <p><a href="docs/index.html">Clicca qui se non vieni reindirizzato automaticamente</a></p>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-icon">📊</div>
+        <div class="brand-text">
+          <h1>Job Tracker <span style="font-size:0.75rem; background:rgba(59,130,246,0.15); color:var(--accent); padding:2px 8px; border-radius:12px; font-weight:700;">DATA ANALYST</span></h1>
+          <p>Modena • Reggio Emilia • Parma — Statistica & Modeling</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn" id="btnAddJob" title="Aggiungi offerta manualmente">
+          <span>➕</span> Nuovo Annuncio
+        </button>
+        <button class="btn" id="btnExportCsv" title="Esporta offerte visualizzate in CSV">
+          <span>📥</span> CSV
+        </button>
+        <button class="btn" id="btnBackup" title="Salva backup delle tue candidature e note">
+          <span>💾</span> Backup
+        </button>
+        <button class="btn btn-icon" id="btnThemeToggle" title="Cambia tema chiaro/scuro">
+          <span id="themeIcon">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Live Feeds Quick Bar -->
+    <div class="live-bar">
+      <div class="live-bar-title">
+        <span>📡</span>
+        <span>Cerca Annunci Live in Tempo Reale:</span>
+      </div>
+      <div class="live-bar-links">
+        <a href="https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst&location=Modena%2C%20Emilia-Romagna%2C%20Italy" target="_blank" rel="noopener noreferrer" class="live-link-btn">
+          <span>🔵</span> LinkedIn Modena
+        </a>
+        <a href="https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst&location=Reggio%20Emilia%2C%20Emilia-Romagna%2C%20Italy" target="_blank" rel="noopener noreferrer" class="live-link-btn">
+          <span>🔵</span> LinkedIn Reggio Emilia
+        </a>
+        <a href="https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst&location=Parma%2C%20Emilia-Romagna%2C%20Italy" target="_blank" rel="noopener noreferrer" class="live-link-btn">
+          <span>🔵</span> LinkedIn Parma
+        </a>
+        <a href="https://it.indeed.com/jobs?q=Data+Analyst&l=Emilia-Romagna" target="_blank" rel="noopener noreferrer" class="live-link-btn">
+          <span>🟧</span> Indeed Emilia-Romagna
+        </a>
+        <a href="https://www.google.com/search?ibp=htl;jobs&q=Data+Analyst+Modena+Reggio+Parma" target="_blank" rel="noopener noreferrer" class="live-link-btn">
+          <span>🟢</span> Google Jobs
+        </a>
+      </div>
+    </div>
+
+    <!-- KPI Stats Bar -->
+    <section class="stats-grid" id="statsSection">
+      <div class="stat-card" data-filter-status="all" style="--stat-color: var(--accent); --stat-bg: rgba(59, 130, 246, 0.12);">
+        <div class="stat-icon">💼</div>
+        <div class="stat-info">
+          <div class="stat-value" id="statTotal">0</div>
+          <div class="stat-label">Offerte Monitorate</div>
+        </div>
+      </div>
+
+      <div class="stat-card" data-filter-status="interessante" style="--stat-color: var(--warning); --stat-bg: rgba(245, 158, 11, 0.12);">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-info">
+          <div class="stat-value" id="statStarred">0</div>
+          <div class="stat-label">Preferite / Salvate</div>
+        </div>
+      </div>
+
+      <div class="stat-card" data-filter-status="applicato" style="--stat-color: var(--success); --stat-bg: rgba(16, 185, 129, 0.12);">
+        <div class="stat-icon">✅</div>
+        <div class="stat-info">
+          <div class="stat-value" id="statApplied">0</div>
+          <div class="stat-label">Candidature Inviate</div>
+        </div>
+      </div>
+
+      <div class="stat-card" data-filter-province="Modena" style="--stat-color: #38bdf8; --stat-bg: rgba(2, 132, 199, 0.12);">
+        <div class="stat-icon">🏛️</div>
+        <div class="stat-info">
+          <div class="stat-value" id="statModena">0</div>
+          <div class="stat-label">Modena (MO)</div>
+        </div>
+      </div>
+
+      <div class="stat-card" data-filter-province="Reggio Emilia" style="--stat-color: #2dd4bf; --stat-bg: rgba(13, 148, 136, 0.12);">
+        <div class="stat-icon">🏢</div>
+        <div class="stat-info">
+          <div class="stat-value" id="statReggio">0</div>
+          <div class="stat-label">Reggio Emilia (RE)</div>
+        </div>
+      </div>
+
+      <div class="stat-card" data-filter-province="Parma" style="--stat-color: #fbbf24; --stat-bg: rgba(217, 119, 6, 0.12);">
+        <div class="stat-icon">🏭</div>
+        <div class="stat-info">
+          <div class="stat-value" id="statParma">0</div>
+          <div class="stat-label">Parma (PR)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters & Search Panel -->
+    <section class="filter-panel">
+      <div class="filter-row-top">
+        <div class="search-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="searchInput" placeholder="Cerca per azienda, titolo, tecnologia (es. Ferrari, SQL, Barilla)...">
+        </div>
+
+        <select class="select-dropdown" id="selectWorkplace">
+          <option value="all">🏢 Tutte le modalità</option>
+          <option value="Ibrido">Ibrido / Smart Working</option>
+          <option value="presenza">In presenza</option>
+        </select>
+
+        <select class="select-dropdown" id="selectSort">
+          <option value="recent">📅 Più recenti</option>
+          <option value="match">🎯 Più affini (Statistica & Modeling)</option>
+          <option value="company">🏢 Azienda (A-Z)</option>
+        </select>
+
+        <button class="btn" id="btnResetFilters" style="font-size:0.8rem; padding:8px 12px;">
+          🔄 Azzera Filtri
+        </button>
+      </div>
+
+      <!-- Province filter pills -->
+      <div class="filter-pills-group" style="margin-bottom: 12px; border-top: none; padding-top: 0;">
+        <span class="filter-label">Provincia:</span>
+        <button class="pill active" data-province="all">Tutte (Emilia-Romagna)</button>
+        <button class="pill" data-province="Modena">Modena (MO)</button>
+        <button class="pill" data-province="Reggio Emilia">Reggio Emilia (RE)</button>
+        <button class="pill" data-province="Parma">Parma (PR)</button>
+      </div>
+
+      <!-- Status filter pills -->
+      <div class="filter-pills-group">
+        <span class="filter-label">Stato:</span>
+        <button class="pill active" data-status="all">Tutti</button>
+        <button class="pill" data-status="none">⏳ Da valutare</button>
+        <button class="pill" data-status="interessante">⭐ Preferiti</button>
+        <button class="pill" data-status="applicato">✅ Candidati</button>
+        <button class="pill" data-status="scartato">❌ Scartati</button>
+
+        <label style="margin-left: auto; font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px; cursor: pointer;">
+          <input type="checkbox" id="checkHideDiscarded" checked>
+          Nascondi scartati
+        </label>
+      </div>
+
+      <!-- Skills Quick Filter -->
+      <div class="filter-pills-group" style="margin-top: 10px;">
+        <span class="filter-label">Competenze:</span>
+        <button class="pill" data-skill="SQL">SQL</button>
+        <button class="pill" data-skill="Python">Python</button>
+        <button class="pill" data-skill="Power BI">Power BI</button>
+        <button class="pill" data-skill="Statistica">Statistica</button>
+        <button class="pill" data-skill="Excel">Excel Avanzato</button>
+        <button class="pill" data-skill="R">R</button>
+        <button class="pill" data-skill="Modellazione">Modellazione Dati</button>
+        <button class="pill" data-skill="Tableau">Tableau</button>
+      </div>
+    </section>
+
+    <!-- Sub Toolbar -->
+    <div class="toolbar-sub">
+      <div class="results-count" id="resultsCount">Caricamento annunci in corso...</div>
+      <div class="view-toggles">
+        <button class="view-btn active" id="btnViewGrid" title="Visualizzazione a griglia">
+          🗂️ Card
+        </button>
+        <button class="view-btn" id="btnViewTable" title="Visualizzazione a tabella">
+          📑 Tabella
+        </button>
+      </div>
+    </div>
+
+    <!-- Job Cards Grid -->
+    <section class="jobs-grid" id="jobsGrid"></section>
+
+    <!-- Job Table View -->
+    <div class="table-container" id="tableContainer">
+      <table>
+        <thead>
+          <tr>
+            <th>Stato</th>
+            <th>Ruolo & Azienda</th>
+            <th>Sede</th>
+            <th>Modalità</th>
+            <th>Affinità</th>
+            <th>Competenze</th>
+            <th>Data</th>
+            <th>Candidatura Diretta</th>
+          </tr>
+        </thead>
+        <tbody id="jobsTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="emptyState">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <h3>Nessun annuncio trovato</h3>
+      <p>Prova a modificare i filtri o il termine di ricerca per trovare offerte.</p>
+    </div>
+
+  </main>
+
+  <!-- Modal Aggiungi Annuncio -->
+  <div class="modal-overlay" id="modalAddJob">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>➕ Inserisci Nuova Offerta</h3>
+        <button class="btn btn-icon" id="btnCloseModal" style="border:none; background:transparent; font-size:1.2rem;">✕</button>
+      </div>
+      <form id="formAddJob">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="inputJobTitle">Titolo Posizione *</label>
+            <input type="text" id="inputJobTitle" required placeholder="es. Junior Data Analyst">
+          </div>
+          <div class="form-group">
+            <label for="inputJobCompany">Azienda *</label>
+            <input type="text" id="inputJobCompany" required placeholder="es. Ferrari / Barilla / Max Mara">
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+            <div class="form-group">
+              <label for="inputJobProvince">Provincia *</label>
+              <select id="inputJobProvince" required>
+                <option value="Modena">Modena (MO)</option>
+                <option value="Reggio Emilia">Reggio Emilia (RE)</option>
+                <option value="Parma">Parma (PR)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="inputJobWorkplace">Modalità *</label>
+              <select id="inputJobWorkplace" required>
+                <option value="Ibrido">Ibrido</option>
+                <option value="In presenza">In presenza</option>
+                <option value="Full Remote">Full Remote</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputJobUrl">Link Annuncio / Candidatura *</label>
+            <input type="url" id="inputJobUrl" required placeholder="https://...">
+          </div>
+          <div class="form-group">
+            <label for="inputJobSkills">Competenze richieste (separate da virgola)</label>
+            <input type="text" id="inputJobSkills" placeholder="es. SQL, Python, Power BI, Statistica">
+          </div>
+          <div class="form-group">
+            <label for="inputJobDesc">Descrizione sintetica</label>
+            <textarea id="inputJobDesc" rows="3" placeholder="Mansioni principali, requisiti e team..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" id="btnCancelModal">Annulla</button>
+          <button type="submit" class="btn btn-primary">Salva Annuncio</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Embedded fallback dataset (used if local fetch is blocked via file://) -->
+  <script id="embeddedData" type="application/json">
+  {
+    "schema_version": "1.0",
+    "last_updated": "2026-11-03T15:05:00Z",
+    "jobs": [
+      {
+        "id": "job-mo-001",
+        "title": "Junior Data Analyst — Supply Chain & Logistics",
+        "company": "Tetra Pak",
+        "location": "Modena (MO)",
+        "province": "Modena",
+        "workplace_type": "Ibrido (2 gg presenza)",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior (0-2 anni)",
+        "posted_date": "2026-11-02",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Tetra%20Pak&location=Modena%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Tetra+Pak&l=Modena",
+        "url_company": "https://jobs.tetrapak.com/search/?q=data+analyst&locationsearch=Modena",
+        "source": "LinkedIn / Tetra Pak Careers",
+        "sector": "Packaging & Automazione Industriale",
+        "match_score": 96,
+        "description": "Inserito nel team Global Supply Chain, la risorsa si occuperà dell'analisi dei flussi logistici, dello sviluppo di modelli statistici predittivi per la domanda di ricambi e della creazione di dashboard direzionali interattive su Power BI.",
+        "skills": ["SQL", "Python", "Power BI", "Statistica", "Excel Avanzato", "Modellazione Dati"]
+      },
+      {
+        "id": "job-mo-002",
+        "title": "Data Analyst & Risk Analytics Specialist",
+        "company": "BPER Banca",
+        "location": "Modena (MO)",
+        "province": "Modena",
+        "workplace_type": "Ibrido (Smart Working al 50%)",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior / Mid (1-3 anni)",
+        "posted_date": "2026-11-01",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20BPER&location=Modena%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+BPER&l=Modena",
+        "url_company": "https://istituzionale.bper.it/lavora-con-noi",
+        "source": "LinkedIn / BPER Careers",
+        "sector": "Banking & Finanza",
+        "match_score": 94,
+        "description": "All'interno della Direzione Risk Management, supporterai l'elaborazione dei modelli statistici di scoring creditizio e conformità normativa (IFRS9), gestendo pipeline di estrazione SQL ed elaborazioni dati con R/Python.",
+        "skills": ["SQL", "R", "Python", "Statistica Creditizia", "Modelli Predittivi", "SAS"]
+      },
+      {
+        "id": "job-mo-003",
+        "title": "Commercial & Fleet Data Analyst",
+        "company": "Ferrari",
+        "location": "Maranello (MO)",
+        "province": "Modena",
+        "workplace_type": "In presenza",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior / Entry Level",
+        "posted_date": "2026-10-31",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Ferrari&location=Maranello%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Ferrari&l=Maranello",
+        "url_company": "https://jobs.ferrari.com",
+        "source": "LinkedIn / Ferrari Careers",
+        "sector": "Automotive Luxury",
+        "match_score": 92,
+        "description": "Supporto all'ufficio Commercial Operations nell'aggregazione dati vendite globali, performance concessionarie e telemetria veicoli test. Richiesta ottima padronanza di query complesse in SQL e visualizzazione dati.",
+        "skills": ["SQL", "Power BI", "Python", "Tableau", "Analisi di Mercato"]
+      },
+      {
+        "id": "job-mo-004",
+        "title": "Industrial Operations Data Analyst",
+        "company": "Marazzi Group",
+        "location": "Sassuolo (MO)",
+        "province": "Modena",
+        "workplace_type": "In presenza con flessibilità",
+        "contract_type": "Apprendistato Professionalizzante",
+        "experience_level": "Neolaureato / Junior",
+        "posted_date": "2026-10-30",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Marazzi&location=Sassuolo%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Marazzi&l=Sassuolo",
+        "url_company": "https://www.marazzigroup.com/it/carriere/",
+        "source": "LinkedIn / Indeed",
+        "sector": "Ceramica & Design",
+        "match_score": 90,
+        "description": "La figura collaborerà con la direzione di stabilimento per ottimizzare i consumi energetici e i rendimenti di linea tramite monitoraggio sensori IoT, analisi esplorativa e reportistica automatizzata in Python ed Excel.",
+        "skills": ["Python", "SQL", "Excel Avanzato", "Statistica Descrittiva", "KPI Industriali"]
+      },
+      {
+        "id": "job-mo-005",
+        "title": "Business Intelligence & Data Analyst",
+        "company": "System Logistics",
+        "location": "Fiorano Modenese (MO)",
+        "province": "Modena",
+        "workplace_type": "Ibrido",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior (1-2 anni)",
+        "posted_date": "2026-10-28",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20System%20Logistics&location=Modena%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+System+Logistics&l=Modena",
+        "url_company": "https://www.systemlogistics.com/it/lavora-con-noi",
+        "source": "LinkedIn Jobs",
+        "sector": "Intralogistica & Robotica",
+        "match_score": 88,
+        "description": "Definizione architetture dati per il monitoraggio di magazzini automatizzati. Creazione di modelli predittivi di manutenzione preventiva e dashboard Power BI per i clienti worldwide.",
+        "skills": ["Power BI", "SQL", "DAX", "Modellazione Dati", "Time Series"]
+      },
+      {
+        "id": "job-re-001",
+        "title": "E-Commerce & Omnichannel Data Analyst",
+        "company": "Max Mara Fashion Group",
+        "location": "Reggio Emilia (RE)",
+        "province": "Reggio Emilia",
+        "workplace_type": "Ibrido (3 gg presenza / 2 remoto)",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior / Mid (1-3 anni)",
+        "posted_date": "2026-11-02",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Max%20Mara&location=Reggio%20Emilia%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Max+Mara&l=Reggio+Nell%27Emilia",
+        "url_company": "https://careers.maxmarafashiongroup.com",
+        "source": "LinkedIn Jobs",
+        "sector": "Fashion & Luxury Retail",
+        "match_score": 95,
+        "description": "All'interno del dipartimento Digital, analizzerai il comportamento degli utenti sui canali e-commerce globali, conversion funnel, A/B testing e segmentazione clienti con tecniche di clustering statistico.",
+        "skills": ["SQL", "Python", "Google Analytics 4", "Tableau", "Clustering", "A/B Testing"]
+      },
+      {
+        "id": "job-re-002",
+        "title": "CRM & Customer Intelligence Data Analyst",
+        "company": "Credem Banca (Credito Emiliano)",
+        "location": "Reggio Emilia (RE)",
+        "province": "Reggio Emilia",
+        "workplace_type": "Ibrido (Smart Working diffuso)",
+        "contract_type": "Tempo Indeterminato / Inserimento Diretto",
+        "experience_level": "Junior (0-2 anni)",
+        "posted_date": "2026-11-01",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Credem&location=Reggio%20Emilia%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Credem&l=Reggio+Nell%27Emilia",
+        "url_company": "https://www.credem.it/content/credem/it/chi-siamo/lavora-con-noi.html",
+        "source": "LinkedIn / Credem Careers",
+        "sector": "Banking & Servizi Finanziari",
+        "match_score": 93,
+        "description": "Analisi del customer journey, propensity modeling per prodotti bancari e investimenti, predisposizione di pipeline analitiche su Data Lake e reporting per il top management.",
+        "skills": ["SQL", "Python", "Statistica Multivariata", "Power BI", "Predictive Modeling"]
+      },
+      {
+        "id": "job-re-003",
+        "title": "Energy Market & Forecasting Analyst",
+        "company": "Iren Group",
+        "location": "Reggio Emilia (RE)",
+        "province": "Reggio Emilia",
+        "workplace_type": "Ibrido",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior (1-3 anni)",
+        "posted_date": "2026-10-30",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Iren&location=Reggio%20Emilia%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Iren&l=Reggio+Nell%27Emilia",
+        "url_company": "https://www.gruppoiren.it/it/lavora-con-noi.html",
+        "source": "LinkedIn / Iren Careers",
+        "sector": "Energia & Utilities",
+        "match_score": 91,
+        "description": "Previsione dei consumi elettrici e gas tramite modelli statistici econometrici e serie temporali (ARIMA/SARIMAX), monitoraggio andamento prezzi su borsa elettrica (PUN) e reportistica.",
+        "skills": ["Python", "R", "Serie Temporali", "Econometria", "SQL", "Excel Avanzato"]
+      },
+      {
+        "id": "job-re-004",
+        "title": "Manufacturing & Cost Data Analyst",
+        "company": "Comer Industries",
+        "location": "Reggiolo / Reggio Emilia (RE)",
+        "province": "Reggio Emilia",
+        "workplace_type": "In presenza con navetta aziendale",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior",
+        "posted_date": "2026-10-27",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Comer%20Industries&location=Reggio%20Emilia%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Comer+Industries&l=Reggio+Nell%27Emilia",
+        "url_company": "https://www.comerindustries.com/careers",
+        "source": "LinkedIn / InfoJobs",
+        "sector": "Meccatronica & Macchinari Agricoli",
+        "match_score": 87,
+        "description": "Analisi dei costi industriali di commessa, varianze produttive e ottimizzazione cicli di lavoro. Gestione estrazioni da SAP e creazione cruscotti interattivi Qlik / Power BI.",
+        "skills": ["Power BI", "SQL", "SAP ERP", "Excel Avanzato", "Controllo di Gestione"]
+      },
+      {
+        "id": "job-re-005",
+        "title": "Commercial Data Analyst Junior",
+        "company": "Cellularline Group",
+        "location": "Reggio Emilia (RE)",
+        "province": "Reggio Emilia",
+        "workplace_type": "Ibrido (2 gg smart working)",
+        "contract_type": "Stage retribuito finalizzato all'assunzione",
+        "experience_level": "Neolaureato / Stage",
+        "posted_date": "2026-10-29",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Cellularline&location=Reggio%20Emilia%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Cellularline&l=Reggio+Nell%27Emilia",
+        "url_company": "https://www.cellularlinegroup.com/lavora-con-noi/",
+        "source": "LinkedIn / AlmaLaurea",
+        "sector": "Consumer Electronics",
+        "match_score": 89,
+        "description": "Supporto al team Sales & Trade Marketing nell'elaborazione di sell-in e sell-out dei principali retailer europei, pricing analysis e marginalità per categoria di prodotto.",
+        "skills": ["Excel Avanzato", "Power BI", "SQL", "Statistica Descrittiva", "Data Cleansing"]
+      },
+      {
+        "id": "job-pr-001",
+        "title": "Global Consumer & Brand Data Analyst",
+        "company": "Barilla Group",
+        "location": "Parma (PR)",
+        "province": "Parma",
+        "workplace_type": "Ibrido (Smart Working flessibile)",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior / Mid (1-3 anni)",
+        "posted_date": "2026-11-02",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Barilla&location=Parma%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Barilla&l=Parma",
+        "url_company": "https://jobs.barillagroup.com/search/?q=data+analyst&locationsearch=Parma",
+        "source": "LinkedIn / Barilla Careers",
+        "sector": "Food & FMCG",
+        "match_score": 96,
+        "description": "Nel team Global Insights & Analytics, analizzerai panel consumatori (Nielsen/IRI), dati di penetrazione di mercato e campagne marketing internazionali, trasformando grandi volumi di dati in insight strategici.",
+        "skills": ["SQL", "Python", "Power BI", "Statistica Applicata", "Market Research", "Nielsen/Circana"]
+      },
+      {
+        "id": "job-pr-002",
+        "title": "Biostatistician & Clinical Data Analyst Junior",
+        "company": "Chiesi Farmaceutici",
+        "location": "Parma (PR)",
+        "province": "Parma",
+        "workplace_type": "Ibrido (2 gg presenza)",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior (Laurea Magistrale Statistica)",
+        "posted_date": "2026-11-01",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Chiesi&location=Parma%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Chiesi&l=Parma",
+        "url_company": "https://www.chiesi.com/lavora-con-noi/",
+        "source": "LinkedIn / Chiesi Careers",
+        "sector": "Pharma & Healthcare",
+        "match_score": 97,
+        "description": "Opportunità ideale per laureati in Statistica o Data Science. Ti occuperai dell'elaborazione di piani di analisi statistica (SAP) per trial clinici di fase II/III, test d'ipotesi, regressione e reportistica conforme FDA/EMA.",
+        "skills": ["R", "SAS", "Statistica Inferenziale", "Python", "Clinical Trials", "Modelli di Regressione"]
+      },
+      {
+        "id": "job-pr-003",
+        "title": "Demand Planning & Supply Data Analyst",
+        "company": "Parmalat (Gruppo Lactalis)",
+        "location": "Collecchio (PR)",
+        "province": "Parma",
+        "workplace_type": "Ibrido (1 gg smart working a settimana)",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior (0-2 anni)",
+        "posted_date": "2026-10-31",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Parmalat&location=Parma%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Parmalat&l=Parma",
+        "url_company": "https://www.parmalat.it/lavora-con-noi/",
+        "source": "LinkedIn / Parmalat Careers",
+        "sector": "Food & Beverage",
+        "match_score": 91,
+        "description": "Elaborazione di previsioni di vendita per il mercato latte e derivati, calcolo degli errori di forecast (MAPE/WAPE) e modellazione dell'elasticità promozionale in collaborazione con la funzione Supply Chain.",
+        "skills": ["Excel Avanzato", "Power BI", "SQL", "Forecasting", "Serie Temporali", "SAP"]
+      },
+      {
+        "id": "job-pr-004",
+        "title": "Telemetry & Vehicle Performance Data Analyst",
+        "company": "Dallara Automobili",
+        "location": "Varano de' Melegari (PR)",
+        "province": "Parma",
+        "workplace_type": "In presenza",
+        "contract_type": "Tempo Indeterminato",
+        "experience_level": "Junior / Passione Motorsport",
+        "posted_date": "2026-10-26",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Dallara&location=Parma%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Dallara&l=Parma",
+        "url_company": "https://www.dallara.it/it/lavora-con-noi",
+        "source": "LinkedIn / Dallara Careers",
+        "sector": "Motorsport & Aerospazio",
+        "match_score": 90,
+        "description": "Analisi dati provenienti da simulatori di guida professionali e prove in pista, elaborazione di metriche dinamiche, filtering di segnali rumore e creazione di script Python per report automatizzati per gli ingegneri di pista.",
+        "skills": ["Python", "MATLAB", "Elaborazione Segnali", "Statistica Descrittiva", "Data Visualization"]
+      },
+      {
+        "id": "job-pr-005",
+        "title": "Sustainability & ESG Data Analyst",
+        "company": "Davines Group",
+        "location": "Parma (PR)",
+        "province": "Parma",
+        "workplace_type": "Ibrido",
+        "contract_type": "Apprendistato / Tempo Indeterminato",
+        "experience_level": "Junior",
+        "posted_date": "2026-10-28",
+        "url_linkedin": "https://www.linkedin.com/jobs/search/?keywords=Data%20Analyst%20Davines&location=Parma%2C%20Emilia-Romagna%2C%20Italy",
+        "url_indeed": "https://it.indeed.com/jobs?q=Data+Analyst+Davines&l=Parma",
+        "url_company": "https://davinesgroup.com/careers/",
+        "source": "LinkedIn / Davines Careers",
+        "sector": "Cosmetics & B-Corp",
+        "match_score": 88,
+        "description": "Monitoraggio e calcolo dell'impronta di carbonio (LCA), consumi idrici ed emissioni per la rendicontazione di sostenibilità B-Corp. Richiesta capacità di strutturare database relazionali e visualizzare metriche ESG.",
+        "skills": ["SQL", "Excel Avanzato", "Power BI", "Analisi Dati Ambientali", "Statistica"]
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    // State management
+    let jobsData = [];
+    let markings = JSON.parse(localStorage.getItem('job-tracker-markings') || '{}');
+    let notes = JSON.parse(localStorage.getItem('job-tracker-notes') || '{}');
+    let customJobs = JSON.parse(localStorage.getItem('job-tracker-custom-jobs') || '[]');
+
+    let filters = {
+      search: '',
+      province: 'all',
+      status: 'all',
+      workplace: 'all',
+      sort: 'recent',
+      activeSkill: null,
+      hideDiscarded: true
+    };
+
+    let currentView = 'grid'; // 'grid' or 'table'
+
+    // Init App
+    document.addEventListener('DOMContentLoaded', async () => {
+      initTheme();
+      await loadJobs();
+      setupEventListeners();
+      applyFilters();
+    });
+
+    // Theme Toggle
+    function initTheme() {
+      const savedTheme = localStorage.getItem('job-tracker-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+
+      document.getElementById('btnThemeToggle').addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('job-tracker-theme', next);
+        updateThemeIcon(next);
+      });
+    }
+
+    function updateThemeIcon(theme) {
+      document.getElementById('themeIcon').textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Load Jobs (Fetch with fallback to embedded dataset)
+    async function loadJobs() {
+      try {
+        const res = await fetch('data/jobs.json');
+        if (res.ok) {
+          const json = await res.json();
+          jobsData = json.jobs || [];
+        } else {
+          throw new Error('Fallback to embedded');
+        }
+      } catch (e) {
+        const embeddedEl = document.getElementById('embeddedData');
+        if (embeddedEl) {
+          const json = JSON.parse(embeddedEl.textContent);
+          jobsData = json.jobs || [];
+        }
+      }
+
+      // Merge custom added jobs
+      if (customJobs.length > 0) {
+        jobsData = [...customJobs, ...jobsData];
+      }
+    }
+
+    // Event listeners setup
+    function setupEventListeners() {
+      document.getElementById('searchInput').addEventListener('input', (e) => {
+        filters.search = e.target.value.toLowerCase().trim();
+        applyFilters();
+      });
+
+      document.getElementById('selectWorkplace').addEventListener('change', (e) => {
+        filters.workplace = e.target.value;
+        applyFilters();
+      });
+
+      document.getElementById('selectSort').addEventListener('change', (e) => {
+        filters.sort = e.target.value;
+        applyFilters();
+      });
+
+      document.getElementById('checkHideDiscarded').addEventListener('change', (e) => {
+        filters.hideDiscarded = e.target.checked;
+        applyFilters();
+      });
+
+      document.querySelectorAll('[data-province]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-province]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          filters.province = btn.getAttribute('data-province');
+          applyFilters();
+        });
+      });
+
+      document.querySelectorAll('[data-status]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-status]').forEach(b => {
+            b.classList.remove('active', 'active-success', 'active-warning', 'active-danger');
+          });
+          const st = btn.getAttribute('data-status');
+          if (st === 'applicato') btn.classList.add('active-success');
+          else if (st === 'interessante') btn.classList.add('active-warning');
+          else if (st === 'scartato') btn.classList.add('active-danger');
+          else btn.classList.add('active');
+
+          filters.status = st;
+          applyFilters();
+        });
+      });
+
+      document.querySelectorAll('[data-skill]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const sk = btn.getAttribute('data-skill');
+          if (filters.activeSkill === sk) {
+            filters.activeSkill = null;
+            btn.classList.remove('active');
+          } else {
+            document.querySelectorAll('[data-skill]').forEach(b => b.classList.remove('active'));
+            filters.activeSkill = sk;
+            btn.classList.add('active');
+          }
+          applyFilters();
+        });
+      });
+
+      document.getElementById('btnResetFilters').addEventListener('click', () => {
+        filters.search = '';
+        filters.province = 'all';
+        filters.status = 'all';
+        filters.workplace = 'all';
+        filters.sort = 'recent';
+        filters.activeSkill = null;
+        filters.hideDiscarded = true;
+
+        document.getElementById('searchInput').value = '';
+        document.getElementById('selectWorkplace').value = 'all';
+        document.getElementById('selectSort').value = 'recent';
+        document.getElementById('checkHideDiscarded').checked = true;
+
+        document.querySelectorAll('[data-province]').forEach(b => b.classList.toggle('active', b.getAttribute('data-province') === 'all'));
+        document.querySelectorAll('[data-status]').forEach(b => {
+          b.classList.remove('active', 'active-success', 'active-warning', 'active-danger');
+          if (b.getAttribute('data-status') === 'all') b.classList.add('active');
+        });
+        document.querySelectorAll('[data-skill]').forEach(b => b.classList.remove('active'));
+
+        applyFilters();
+      });
+
+      document.querySelectorAll('.stat-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const prov = card.getAttribute('data-filter-province');
+          const stat = card.getAttribute('data-filter-status');
+
+          if (prov) {
+            const btn = document.querySelector(`[data-province="${prov}"]`);
+            if (btn) btn.click();
+          } else if (stat) {
+            const btn = document.querySelector(`[data-status="${stat}"]`);
+            if (btn) btn.click();
+          }
+        });
+      });
+
+      document.getElementById('btnViewGrid').addEventListener('click', () => {
+        currentView = 'grid';
+        document.getElementById('btnViewGrid').classList.add('active');
+        document.getElementById('btnViewTable').classList.remove('active');
+        document.getElementById('jobsGrid').style.display = 'grid';
+        document.getElementById('tableContainer').style.display = 'none';
+      });
+
+      document.getElementById('btnViewTable').addEventListener('click', () => {
+        currentView = 'table';
+        document.getElementById('btnViewTable').classList.add('active');
+        document.getElementById('btnViewGrid').classList.remove('active');
+        document.getElementById('jobsGrid').style.display = 'none';
+        document.getElementById('tableContainer').style.display = 'block';
+      });
+
+      document.getElementById('btnExportCsv').addEventListener('click', exportCsv);
+      document.getElementById('btnBackup').addEventListener('click', downloadBackup);
+
+      const modal = document.getElementById('modalAddJob');
+      document.getElementById('btnAddJob').addEventListener('click', () => modal.classList.add('open'));
+      document.getElementById('btnCloseModal').addEventListener('click', () => modal.classList.remove('open'));
+      document.getElementById('btnCancelModal').addEventListener('click', () => modal.classList.remove('open'));
+
+      document.getElementById('formAddJob').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const prov = document.getElementById('inputJobProvince').value;
+        const comp = document.getElementById('inputJobCompany').value.trim();
+        const titl = document.getElementById('inputJobTitle').value.trim();
+        const userUrl = document.getElementById('inputJobUrl').value.trim();
+
+        const newJob = {
+          id: 'custom-' + Date.now(),
+          title: titl,
+          company: comp,
+          location: prov + ' (' + (prov === 'Modena' ? 'MO' : prov === 'Parma' ? 'PR' : 'RE') + ')',
+          province: prov,
+          workplace_type: document.getElementById('inputJobWorkplace').value,
+          contract_type: 'Personalizzato',
+          experience_level: 'Junior / Libero',
+          posted_date: new Date().toISOString().split('T')[0],
+          url_linkedin: userUrl || `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(titl + ' ' + comp)}&location=${encodeURIComponent(prov)}`,
+          url_indeed: `https://it.indeed.com/jobs?q=${encodeURIComponent(titl + ' ' + comp)}&l=${encodeURIComponent(prov)}`,
+          url_company: userUrl,
+          source: 'Inserito Manualmente',
+          sector: 'Generale',
+          match_score: 95,
+          description: document.getElementById('inputJobDesc').value.trim(),
+          skills: document.getElementById('inputJobSkills').value.split(',').map(s => s.trim()).filter(Boolean)
+        };
+
+        customJobs.unshift(newJob);
+        localStorage.setItem('job-tracker-custom-jobs', JSON.stringify(customJobs));
+        jobsData.unshift(newJob);
+
+        document.getElementById('formAddJob').reset();
+        modal.classList.remove('open');
+        applyFilters();
+      });
+    }
+
+    // Apply Filters & Render
+    function applyFilters() {
+      let filtered = jobsData.filter(job => {
+        const mark = markings[job.id] || 'none';
+
+        if (filters.hideDiscarded && mark === 'scartato' && filters.status !== 'scartato') {
+          return false;
+        }
+
+        if (filters.status !== 'all') {
+          if (filters.status === 'none' && mark !== 'none') return false;
+          if (filters.status !== 'none' && mark !== filters.status) return false;
+        }
+
+        if (filters.province !== 'all' && job.province !== filters.province) {
+          return false;
+        }
+
+        if (filters.workplace !== 'all') {
+          if (filters.workplace === 'Ibrido' && !job.workplace_type.toLowerCase().includes('ibrido') && !job.workplace_type.toLowerCase().includes('smart')) return false;
+          if (filters.workplace === 'presenza' && !job.workplace_type.toLowerCase().includes('presenza')) return false;
+        }
+
+        if (filters.activeSkill) {
+          const hasSkill = job.skills && job.skills.some(s => s.toLowerCase().includes(filters.activeSkill.toLowerCase()));
+          if (!hasSkill) return false;
+        }
+
+        if (filters.search) {
+          const q = filters.search;
+          const matchTitle = job.title.toLowerCase().includes(q);
+          const matchCompany = job.company.toLowerCase().includes(q);
+          const matchLocation = job.location.toLowerCase().includes(q);
+          const matchDesc = (job.description || '').toLowerCase().includes(q);
+          const matchSkills = job.skills && job.skills.some(s => s.toLowerCase().includes(q));
+          if (!matchTitle && !matchCompany && !matchLocation && !matchDesc && !matchSkills) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+
+      if (filters.sort === 'recent') {
+        filtered.sort((a, b) => new Date(b.posted_date || 0) - new Date(a.posted_date || 0));
+      } else if (filters.sort === 'match') {
+        filtered.sort((a, b) => (b.match_score || 0) - (a.match_score || 0));
+      } else if (filters.sort === 'company') {
+        filtered.sort((a, b) => a.company.localeCompare(b.company));
+      }
+
+      updateKPIs();
+      renderResults(filtered);
+    }
+
+    // Update KPI Counters
+    function updateKPIs() {
+      const total = jobsData.length;
+      let starred = 0;
+      let applied = 0;
+      let modena = 0;
+      let reggio = 0;
+      let parma = 0;
+
+      jobsData.forEach(job => {
+        const mark = markings[job.id];
+        if (mark === 'interessante') starred++;
+        if (mark === 'applicato') applied++;
+
+        if (job.province === 'Modena') modena++;
+        else if (job.province === 'Reggio Emilia') reggio++;
+        else if (job.province === 'Parma') parma++;
+      });
+
+      document.getElementById('statTotal').textContent = total;
+      document.getElementById('statStarred').textContent = starred;
+      document.getElementById('statApplied').textContent = applied;
+      document.getElementById('statModena').textContent = modena;
+      document.getElementById('statReggio').textContent = reggio;
+      document.getElementById('statParma').textContent = parma;
+    }
+
+    // Render cards and table
+    function renderResults(list) {
+      const grid = document.getElementById('jobsGrid');
+      const tbody = document.getElementById('jobsTableBody');
+      const empty = document.getElementById('emptyState');
+      const countLabel = document.getElementById('resultsCount');
+
+      countLabel.innerHTML = `Mostrando <span>${list.length}</span> offerte di lavoro`;
+
+      if (list.length === 0) {
+        grid.innerHTML = '';
+        tbody.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+      }
+
+      empty.style.display = 'none';
+      grid.innerHTML = list.map(job => createCardHtml(job)).join('');
+      tbody.innerHTML = list.map(job => createTableRowHtml(job)).join('');
+    }
+
+    function createCardHtml(job) {
+      const mark = markings[job.id] || 'none';
+      const note = notes[job.id] || '';
+      const provinceClass = 'badge-province-' + job.province.replace(/\s+/g, '-');
+      const initial = job.company.charAt(0).toUpperCase();
+
+      const linkedinUrl = job.url_linkedin || `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(job.title + ' ' + job.company)}&location=${encodeURIComponent(job.province)}`;
+      const indeedUrl = job.url_indeed || `https://it.indeed.com/jobs?q=${encodeURIComponent(job.title + ' ' + job.company)}&l=${encodeURIComponent(job.province)}`;
+      const companyUrl = job.url_company || job.url;
+
+      return `
+        <article class="job-card status-${mark}" id="card-${job.id}" data-id="${job.id}">
+          <div>
+            <div class="card-header">
+              <div class="company-badge">
+                <div class="company-logo">${initial}</div>
+                <div class="company-meta">
+                  <h3>${escapeHtml(job.title)}</h3>
+                  <div class="company-name">${escapeHtml(job.company)} • ${escapeHtml(job.location)}</div>
+                </div>
+              </div>
+              <div class="match-pill" title="Affinità con background in Statistica e Modellazione">
+                🎯 ${job.match_score || 90}% Match
+              </div>
+            </div>
+
+            <div class="badges-row">
+              <span class="badge ${provinceClass}">${escapeHtml(job.province)}</span>
+              <span class="badge">${escapeHtml(job.workplace_type || 'N/D')}</span>
+              <span class="badge">${escapeHtml(job.contract_type || 'N/D')}</span>
+              <span class="badge" style="margin-left:auto;">📅 ${job.posted_date || 'Recente'}</span>
+            </div>
+
+            <p class="card-desc">${escapeHtml(job.description || '')}</p>
+
+            <div class="skills-list">
+              ${(job.skills || []).map(skill => `<span class="skill-tag" onclick="filterBySkill('${escapeHtml(skill)}')">${escapeHtml(skill)}</span>`).join('')}
+            </div>
+
+            <!-- Notes Section -->
+            <div class="notes-box ${note ? 'open' : ''}" id="notes-box-${job.id}">
+              <textarea placeholder="Aggiungi una nota personale (es. inviato CV il 3 Nov, colloquio con HR...)" onchange="saveNote('${job.id}', this.value)">${escapeHtml(note)}</textarea>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <!-- Tracking status buttons -->
+            <div class="status-actions-row">
+              <div class="action-group">
+                <button class="action-btn ${mark === 'interessante' ? 'active-interessante' : ''}" onclick="toggleStatus('${job.id}', 'interessante')" title="Segna come preferito">
+                  ⭐ ${mark === 'interessante' ? 'Salvato' : 'Salva'}
+                </button>
+                <button class="action-btn ${mark === 'applicato' ? 'active-applicato' : ''}" onclick="toggleStatus('${job.id}', 'applicato')" title="Segna come candidatura inviata">
+                  ✅ ${mark === 'applicato' ? 'Candidato' : 'Applicato'}
+                </button>
+                <button class="action-btn ${mark === 'scartato' ? 'active-scartato' : ''}" onclick="toggleStatus('${job.id}', 'scartato')" title="Scarta offerta">
+                  ❌
+                </button>
+              </div>
+              <button class="action-btn" onclick="toggleNotesBox('${job.id}')" title="Aggiungi / Modifica note personali">
+                📝 Note
+              </button>
+            </div>
+
+            <!-- Direct Application Links -->
+            <div class="apply-links-row">
+              <a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-linkedin" title="Cerca e candidati all'annuncio attivo su LinkedIn">
+                <span>🔵</span> Candidati su LinkedIn ↗
+              </a>
+              <a href="${indeedUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-secondary" title="Vedi offerta attiva su Indeed Italia">
+                <span>🟧</span> Indeed ↗
+              </a>
+              ${companyUrl ? `
+                <a href="${companyUrl}" target="_blank" rel="noopener noreferrer" class="btn-apply-secondary" title="Sito carriere ufficiale azienda">
+                  <span>🌐</span> Sito ↗
+                </a>
+              ` : ''}
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function createTableRowHtml(job) {
+      const mark = markings[job.id] || 'none';
+      let statusBadge = '<span style="color:var(--text-dim)">⏳ Nuovo</span>';
+      if (mark === 'interessante') statusBadge = '<span style="color:var(--warning)">⭐ Preferito</span>';
+      if (mark === 'applicato') statusBadge = '<span style="color:var(--success)">✅ Candidato</span>';
+      if (mark === 'scartato') statusBadge = '<span style="color:var(--danger)">❌ Scartato</span>';
+
+      const linkedinUrl = job.url_linkedin || `https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(job.title + ' ' + job.company)}&location=${encodeURIComponent(job.province)}`;
+      const indeedUrl = job.url_indeed || `https://it.indeed.com/jobs?q=${encodeURIComponent(job.title + ' ' + job.company)}&l=${encodeURIComponent(job.province)}`;
+
+      return `
+        <tr>
+          <td>${statusBadge}</td>
+          <td>
+            <strong>${escapeHtml(job.title)}</strong><br>
+            <span style="font-size:0.8rem; color:var(--text-muted);">${escapeHtml(job.company)}</span>
+          </td>
+          <td>${escapeHtml(job.location)}</td>
+          <td>${escapeHtml(job.workplace_type || 'N/D')}</td>
+          <td><strong style="color:var(--success);">${job.match_score || 90}%</strong></td>
+          <td>
+            <div style="display:flex; flex-wrap:wrap; gap:4px; max-width:260px;">
+              ${(job.skills || []).slice(0, 4).map(s => `<span class="skill-tag" style="font-size:0.68rem;">${escapeHtml(s)}</span>`).join('')}
+            </div>
+          </td>
+          <td>${job.posted_date || 'N/D'}</td>
+          <td>
+            <div style="display:flex; gap:6px; align-items:center;">
+              <a href="${linkedinUrl}" target="_blank" class="action-btn" style="background:#0a66c2; color:#fff; text-decoration:none;" title="LinkedIn">LinkedIn ↗</a>
+              <a href="${indeedUrl}" target="_blank" class="action-btn" style="text-decoration:none;" title="Indeed">Indeed ↗</a>
+            </div>
+          </td>
+        </tr>
+      `;
+    }
+
+    window.toggleStatus = function(jobId, status) {
+      const current = markings[jobId] || 'none';
+      if (current === status) {
+        delete markings[jobId];
+      } else {
+        markings[jobId] = status;
+      }
+      localStorage.setItem('job-tracker-markings', JSON.stringify(markings));
+      applyFilters();
+    };
+
+    window.toggleNotesBox = function(jobId) {
+      const box = document.getElementById(`notes-box-${jobId}`);
+      if (box) {
+        box.classList.toggle('open');
+        if (box.classList.contains('open')) {
+          const textarea = box.querySelector('textarea');
+          if (textarea) textarea.focus();
+        }
+      }
+    };
+
+    window.saveNote = function(jobId, text) {
+      if (text.trim()) {
+        notes[jobId] = text.trim();
+      } else {
+        delete notes[jobId];
+      }
+      localStorage.setItem('job-tracker-notes', JSON.stringify(notes));
+    };
+
+    window.filterBySkill = function(skill) {
+      const clean = skill.split(' ')[0];
+      filters.activeSkill = clean;
+      document.querySelectorAll('[data-skill]').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-skill').toLowerCase() === clean.toLowerCase());
+      });
+      applyFilters();
+    };
+
+    function exportCsv() {
+      const headers = ['ID', 'Titolo', 'Azienda', 'Provincia', 'Sede', 'Modalita', 'Contratto', 'Match %', 'Competenze', 'Stato Candidatura', 'Note Personali', 'Data', 'URL LinkedIn', 'URL Indeed'];
+      
+      const rows = jobsData.map(j => {
+        const mark = markings[j.id] || 'Non valutato';
+        const note = notes[j.id] || '';
+        const skills = (j.skills || []).join('; ');
+        return [
+          j.id,
+          `"${(j.title || '').replace(/"/g, '""')}"`,
+          `"${(j.company || '').replace(/"/g, '""')}"`,
+          `"${(j.province || '').replace(/"/g, '""')}"`,
+          `"${(j.location || '').replace(/"/g, '""')}"`,
+          `"${(j.workplace_type || '').replace(/"/g, '""')}"`,
+          `"${(j.contract_type || '').replace(/"/g, '""')}"`,
+          j.match_score || '',
+          `"${skills.replace(/"/g, '""')}"`,
+          `"${mark}"`,
+          `"${note.replace(/"/g, '""')}"`,
+          j.posted_date || '',
+          `"${j.url_linkedin || j.url || ''}"`,
+          `"${j.url_indeed || ''}"`
+        ].join(',');
+      });
+
+      const csvContent = '\uFEFF' + [headers.join(','), ...rows].join('\r\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `offerte_data_analyst_emilia_${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function downloadBackup() {
+      const payload = {
+        exported_at: new Date().toISOString(),
+        markings: markings,
+        notes: notes,
+        custom_jobs: customJobs
+      };
+
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `job_tracker_backup_${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  </script>
 </body>
 </html>
